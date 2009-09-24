@@ -46,3 +46,7 @@ k: $(NOMBRE).pdf
 x: $(NOMBRE).pdf
 	@echo "   Opening $(NOMBRE).pdf with xpdf..."
 	@xpdf $(NOMBRE).pdf &> /dev/null &
+
+e: $(NOMBRE).pdf
+	@echo "   Opening $(NOMBRE).pdf with evince..."
+	@evince $(NOMBRE).pdf &> /dev/null &

@@ -373,9 +373,27 @@ layers.
 
         \subsection*{\hspace{0.2cm} {\color{blue} Deployment perspective}}
 			\begin{minipage}[t]{0.45\linewidth}
-	Dummy content.\\
+The \emph{deployment perspective} intends to illustrate how the architecture can
+be used in a distributed way. It shows the geographical distribution of the
+system, and the bus that communicates the different parts of the system.
+
+Each computer will execute different parts of the system. We can distribute one
+layer through different computers. This is the capability of the system to have
+its components distributed over a network of computers, but working together. 
+
+The Information Service can be seen as a software component accessible through
+any part part of the system. It has two main responsibilities: to know which
+software components are available in the system and to offer the possibility to
+retrieve information about the classes, interfaces, methods, parameters and
+related information from all the components of the system.\\
 
 			\end{minipage}
+			\begin{minipage}[t]{0.5\linewidth}
+			\strut\vskip -\baselineskip
+			\hspace{0.8cm}
+			\includegraphics[width=1\linewidth,height=!]{images/deploy-view}
+			\end{minipage} \hfill
+
       \end{kasten}
 
     \end{spalte}
@@ -394,18 +412,41 @@ layers.
     \parbox[t]{0.9\linewidth}{
 \begin{minipage}[t]{0.49\linewidth}
 \vspace{0.1cm}
-\section*{ {\normalsize \color{red} Conclusions}}
+\section*{ {\normalsize \color{red} Reference technologies}}
 
 {\footnotesize
 \renewcommand{\baselinestretch}{0.5}
-Dummy content
+The Control System for an Amateur Telescope~[1] project, a TCS constructed over
+ALMA Common Software (ACS)~[2,3] was used as an initial approach to the problem and
+reference architecture.
+
+To exemplify the proposed reference, existing technologies that are implementing
+some aspects of the proposal are analyzed.
+
+\begin{description}
+	\item[ALMA Common Software] If we consider the Container/Component~[4]
+		model present on ACS, each composite device can be managed by an
+		ACS Characteristic component. Through the use of states,
+		exceptions and container lifecycle we are able to manage the
+		lifecycle of the whole gTCS. Currently ACS uses CORBA, which is
+		an example of a communication bus. The information service can
+		be obtained through the Manager (responsible for the management
+		of containers, components and clients) and the information
+		provided by the Interface Repository (IR) and the Configuration
+		Database (CDB).
+\end{description}
+
 }
 \end{minipage}\hfill
 \begin{minipage}[t]{0.49\linewidth}
 \vspace{0.8cm}
 {\footnotesize
 \renewcommand{\baselinestretch}{0.5}
-... dummy content
+
+\begin{description}
+	\item[VLT Common Software]
+	\item[Java Remote Method Invocation]
+\end{description}
 }
 \end{minipage}
 }
@@ -434,9 +475,25 @@ Federico Santa Mar\'ia.
 {\small\bf References}
 
 [1] Tobar, R. et~al., ``An amateur telescope control system towards a generic
-telescope control model'' in [{\em Proceedings of SPIE - Advanced Software
-and Control for Astronomy 2008}{\hspace{0.1em}}], (2008).
+telescope control model'' in [{\em Proceedings of SPIE - Advanced Software and
+Control for Astronomy 2008}{\hspace{0.1em}}], (2008).
 \renewcommand{\baselinestretch}{0.5}
+
+[2] Chiozzi, G. et~al., ``The ALMA Common Software: A developer friendly CORBA
+based framework'' in [{\em Proceedings of SPIE - Advanced Software and Control
+for Astronomy 2004}{\hspace{0.1em}}], (2008).
+\renewcommand{\baselinestretch}{0.5}
+
+[3] Chiozzi, G. et~al., ``Application development using the ALMA Common
+Software'' in [{\em Proceedings of SPIE - Advanced Software and Control for
+Astronomy 2006}{\hspace{0.1em}}], (2006).  
+\renewcommand{\baselinestretch}{0.5}
+
+[4] Sommer, H. et~al., ``Container-component model and XML in ALMA ACS'' in
+[{\em Proceedings of SPIE - Advanced Software and Control for Astronomy
+2004}{\hspace{0.1em}}], (2004).
+\renewcommand{\baselinestretch}{0.5}
+
 }
 \hfill
 \end{minipage}

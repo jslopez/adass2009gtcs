@@ -80,7 +80,7 @@
 %% Load the necessary packages
 %% 
 \usepackage{palatino}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{epsf}
 \usepackage{graphicx,psfrag,color,pstcol,pst-grad}
 \usepackage{amsmath,amssymb}
@@ -215,13 +215,13 @@ A Telescope Control System (TCS) is a software responsible of controlling the
 hardware that an astronomical observation needs. The automation and
 sophistication of these observations has produced complex systems. Currently, a
 TCS is compound by software components that interact with several users and even
-with other systems and instruments.\\
+with other systems and instruments.
 
 Each observatory has successfully developed a wide spectrum of TCS solutions to
 their telescopes. Regardless the mount, there are common patterns in the
 software components that all these telescopes use. As almost every telescope is
 custom designed, these patterns are reimplemented again and again for each
-telescope. This is indeed an opportunity of reuse and collaboration.\\
+telescope. This is indeed an opportunity of reuse and collaboration.
 
 The Generic Telescope Control System (gTCS) pretends to be a base distributed
 framework for the developing and deployment of the TCS of any telescope,
@@ -231,7 +231,7 @@ through two complementary approaches: the layers perspective and the deployment
 perspective. The first approach defines a set of layers, one on the top of the
 other, offering different levels of abstraction. Meanwhile the deployment
 perspective intends to illustrate how the system could be deployed, focused on
-the distributed nature of the devices.\\
+the distributed nature of the devices.
 }
 \hfill}}\hfill\mbox{}
 
@@ -247,29 +247,76 @@ the distributed nature of the devices.\\
 		\section*{\hspace{0.1cm} {\color{red} The Generic TCS Problem}}
         \subsection*{\hspace{0.2cm} {\color{blue} Overview}}
 			\begin{minipage}[t]{0.95\linewidth}
-Control systems have two basic entrypoints: the \textit{users} and the
+Control systems have two basic entry points: the \textit{users} and the
 \textit{devices}. In a TCS domain, users and devices are heterogeneous: users
 with various levels of expertise, and devices with different protocols and
 access levels. Therefore, to understand the problem we must identify the diverse
-nature of usersa nd devices. \\
+nature of users and devices. \\
 			\end{minipage}
 
-        \subsection*{\hspace{0.2cm} {\color{blue} Dummy title}}
+        \subsection*{\hspace{0.2cm} {\color{blue} The Users}}
 
-			%\hspace{0.3\linewidth}
 			\begin{minipage}[t]{0.45\linewidth}
-Dummy content\\
+Users can be classified by the \emph{usage} that they give to the system, or in
+other words, to which \emph{profile} they belong. Profile examples:
+
+\begin{itemize}
+	\item \textbf{Observation Control}: The control of the observation
+itself. Includes all the variables in the domain of the Astronomer, and all the
+technical and specific details of the telescopes are hidden.
+	\item \textbf{Calibration and Startup}: The automatic or manual process
+of calibrating the telescope, also in high-level domain, but including the
+specific details of the telescope.
+	\item \textbf{Maintenance}: The low-level variables of the telescope,
+with a detailed control of all the devices and software states.
+	\item \textbf{Monitoring}: The summary of the telescope operations to
+audit, check the behavior of the devices, etc. This may be a mixture of specific
+logs with general information of the observation.
+\end{itemize}
+
 			\end{minipage}
-%\vspace{0.53cm}
-%\hspace{0.5cm}
-%			\begin{minipage}[t]{0.5\linewidth}
-%			\strut\vskip -\baselineskip
-%			\hspace{-0.8cm}
-%			\includegraphics[width=1\linewidth,height=!]{images/seq-LBSim}
-%			\end{minipage} \hfill
-%\hspace{-0.805\linewidth}
+			\begin{minipage}[t]{0.5\linewidth}
+			\strut\vskip -\baselineskip
+			\hspace{0.8cm}
+			\includegraphics[width=1\linewidth,height=!]{images/users}
+			\end{minipage} \hfill
+
 			\begin{minipage}[t]{0.95\linewidth}
-Dummy content\\
+\vspace{0.5cm}
+The problem is that several users could use more than one profile. Then,
+building an application for each profile is not the most desired approach.
+Therefore, the existing TCSs often builds very complex user interfaces that have
+all the possible variables that the user \emph{may} need. This turns the
+application unmanageable for unexperienced users. Fortunately, defining these
+profiles helps to identify which is the scope of the TCS and select the features
+that the system will need in a user-independent fashion.\\
+			\end{minipage}
+
+        \subsection*{\hspace{0.2cm} {\color{blue} Devices Scope}}
+
+			\begin{minipage}[t]{0.95\linewidth}
+The devices of a telescope are diverse. Only in the axis control domain each
+telescope mount/technology has different devices with different protocols and
+configurations. Even if two telescopes has the same hardware, the firmware or
+other vendor software could vary. If we add to the equation mirror control,
+active optics and meteorologic stations, the set of devices turns unmanageable.
+Therefore, defining the possible set of devices is not a practical approach. A
+simpler approach is to group the devices into \emph{instruments} that do a
+specific task.  In an observatory there are two general types of hardware
+devices:
+
+\begin{itemize}
+	\item \textbf{Technical Instruments}: All instrument that does not
+directly produce scientific data, such as the telescope, a meteorologic station,
+the active optics, an autoguiding CCD, etc.
+	\item \textbf{Scientific Instruments}: All instrument that produces
+scientific data that the astronomer will use, such as the main CCD, a
+spectrograph, an interferometer, filter wheels, etc.  \end{itemize}
+
+The scope of a TCS is limited to \emph{technical instruments} and their devices.
+Also, a TCS must provide all the interfaces to connect the software in charge of
+managing the \emph{scientific instruments}. \\
+
 			\end{minipage}
       \end{kasten}
 
@@ -281,13 +328,54 @@ Dummy content\\
     \begin{spalte}
        
       \begin{kasten}
-        \section*{\hspace{0.1cm} {\color{red} Dummy title}}
+        \section*{\hspace{0.1cm} {\color{red} Proposed Architecture
+	Specification}}
+        \subsection*{\hspace{0.2cm} {\color{blue} Layers perspective}}
+			\begin{minipage}[t]{0.45\linewidth}
+The \emph{layers perspective} presents different levels of abstraction (higher
+layers offer higher abstractions). This perspective can be seen as the network
+stack (such TCP/IP) where each layer offers services to the upper one, and the
+upper one only uses the lower one. 
+
+This view allow us to have an idea of which are the different abstractions
+that the system needs, and how to encapsulate this information in different
+layers.
+
+\begin{description}
+	\item[Drivers] Responsible of the communication of the system with
+		external entities.
+	\item[Sensors/Actuators] It provides software abstractions of physical
+		devices, without considering any interaction with any other
+		device.
+	\item[Composite devices] It represents a full device used on the
+		astronomy domain, and that can be composed by a given number of
+		sensors and/or actuators.
+\end{description}
+
+			\end{minipage}
+			\begin{minipage}[t]{0.5\linewidth}
+			\strut\vskip -\baselineskip
+			\hspace{0.8cm}
+			\includegraphics[width=1\linewidth,height=!]{images/layers}
+			\end{minipage} \hfill
+
 			\begin{minipage}[t]{0.95\linewidth}
-Dummy content\\
-			\end{minipage}\vfill
-			\begin{minipage}[t]{0.95\linewidth}
-Dummy content\\
-			\end{minipage}\vfill
+\vspace{0.3cm}
+\begin{description}
+	\item[Observation control] It offers the abstraction of a full equipped
+		and controlled telescope. This is done by grouping different
+		composite devices, and using them in a intelligent way, in order
+		to obtain data, collaborate, and finally do control over the
+		necessary composite devices.
+\end{description}
+
+			\end{minipage}
+
+        \subsection*{\hspace{0.2cm} {\color{blue} Deployment perspective}}
+			\begin{minipage}[t]{0.45\linewidth}
+	Dummy content.\\
+
+			\end{minipage}
       \end{kasten}
 
     \end{spalte}

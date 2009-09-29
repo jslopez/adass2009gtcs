@@ -217,14 +217,14 @@ sophistication of these observations has produced complex systems. Currently, a
 TCS is compound by software components that interact with several users and even
 with other systems and instruments.\\
 
-Each observatory has successfully developed a wide spectrum of TCS solutions to
+Each observatory has successfully developed a wide spectrum of TCS solutions for
 their telescopes. Regardless the mount, there are common patterns in the
 software components that all these telescopes use. As almost every telescope is
 custom designed, these patterns are reimplemented again and again for each
 telescope. This is indeed an opportunity of reuse and collaboration.\\
 
 The Generic Telescope Control System (gTCS) pretends to be a base distributed
-framework for the developing and deployment of the TCS of any telescope,
+framework for the development and deployment of the TCS of any telescope,
 independent of its physical structure, the type of mount and instrumentation
 that they use. This work presents an architecture specification explained
 through two complementary approaches: the layers perspective and the deployment
@@ -285,8 +285,8 @@ logs with general information of the observation.
 \vspace{0.5cm}
 The problem is that several users could use more than one profile. Then,
 building an application for each profile is not the most desired approach.
-Therefore, the existing TCSs often builds very complex user interfaces that have
-all the possible variables that the user \emph{may} need. This turns the
+Therefore, the existing TCSs often build very complex user interfaces that have
+all the information that the user \emph{may} need. This turns the
 application unmanageable for unexperienced users. Fortunately, defining these
 profiles helps to identify which is the scope of the TCS and select the features
 that the system will need in a user-independent fashion.\\
@@ -344,11 +344,13 @@ layers.
 \begin{description}
 	\item[Drivers] Responsible of the communication of the system with
 		external entities.
-	\item[Sensors/Actuators] It provides software abstractions of physical
+	\item[Sensors/Actuators] Considering a device as a single monitor/control point
+		associated with a unique property to be read/written,
+		Sensors/Actuators provides software abstractions of physical
 		devices, without considering any interaction with any other
 		device.
 	\item[Composite devices] It represents a full device used on the
-		astronomy domain, and that can be composed by a given number of
+		astronomy domain that can be composed by a given number of
 		sensors and/or actuators.
 \end{description}
 
@@ -363,9 +365,9 @@ layers.
 \vspace{0.3cm}
 \begin{description}
 	\item[Observation control] It offers the abstraction of a full equipped
-		and controlled telescope. This is done by grouping different
-		composite devices, and using them in a intelligent way, in order
-		to obtain data, collaborate, and finally do control over the
+		telescope. This is done by grouping different composite
+		devices, and using them in an intelligent way, in order to
+		obtain data, collaborate, and finally do control over the
 		necessary composite devices.
 \end{description}
 
@@ -374,12 +376,12 @@ layers.
         \subsection*{\hspace{0.2cm} {\color{blue} Deployment perspective}}
 			\begin{minipage}[t]{0.45\linewidth}
 The \emph{deployment perspective} intends to illustrate how the architecture can
-be used in a distributed way. It shows the geographical distribution of the
-system, and the bus that communicates the different parts of the system.
+be used in a distributed way, showing the geographical deployment of the
+system, and the bus that communicates its components.\\
 
-Each computer will execute different parts of the system. We can distribute one
-layer through different computers. This is the capability of the system to have
-its components distributed over a network of computers, but working together. 
+Each computer will execute different parts of the system and we can distribute one
+layer through several computers. This is the capability of the system to have
+its components spread over a network of computers, while working together.\\
 
 The Information Service can be seen as a software component accessible through
 any part part of the system. It has two main responsibilities: to know which

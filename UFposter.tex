@@ -39,8 +39,8 @@
 %%        2         = 2.00     (for A1) 
 %%  
 %% 
-\def\breite{400mm}     % Special Format. 
-\def\hoehe{470mm}      % Scaled by 2.82 this gives 110cm x 90cm 
+\def\breite{350mm}     % Special Format. 
+\def\hoehe{494mm}      % Scaled by 2.82 this gives 110cm x 90cm 
 
 %\def\breite{390mm}     % Special Format. 
 %\def\hoehe{319.2mm}      % Scaled by 2.82 this gives 110cm x 90cm 
@@ -444,8 +444,20 @@ some aspects of the proposal are analyzed.
 \renewcommand{\baselinestretch}{0.5}
 
 \begin{description}
-	\item[VLT Common Software]
-	\item[Java Remote Method Invocation]
+	\item[VLT Common Software] The VLT control software~[5] uses software
+		modules, sharing benefits of re-usability. These modules are a
+		basic item for the detailed design, development and integration
+		of software.  The software architecture is distributed over
+		several workstations that provide high level and coordination
+		services. The communication is based on a message system and a
+		distributed hierarchical database.
+		
+	\item[Java Remote Method Invocation] The Java Remote Method Invocation
+		(RMI)~[6] is a Java approach to support a model of a distributed
+		object application. It provides remote communication between
+		programs written in Java. It allows applications to call
+		methods located remotely, sharing resources and processing load
+		across systems.
 \end{description}
 }
 \end{minipage}
@@ -456,7 +468,7 @@ some aspects of the proposal are analyzed.
 \hfill
 \psshadowbox{\makebox[0.922\linewidth]{
 \hfill
-\begin{minipage}[t]{0.30\linewidth}
+\begin{minipage}[t]{0.25\linewidth}
 {\scriptsize
 {\small\bf Acknowledgements}
 
@@ -469,7 +481,7 @@ Federico Santa Mar\'ia.
 }
 \end{minipage} \hfill
 
-\begin{minipage}[t]{0.60\linewidth}
+\begin{minipage}[t]{0.65\linewidth}
 {\scriptsize
 \renewcommand{\baselinestretch}{1.0}
 {\small\bf References}
@@ -492,6 +504,14 @@ Astronomy 2006}{\hspace{0.1em}}], (2006).
 [4] Sommer, H. et~al., ``Container-component model and XML in ALMA ACS'' in
 [{\em Proceedings of SPIE - Advanced Software and Control for Astronomy
 2004}{\hspace{0.1em}}], (2004).
+\renewcommand{\baselinestretch}{0.5}
+
+[5] Chiozzi, G., ``An object-oriented event-driven architecture for the VLT Telescope Control Software'' in
+[{\em Proceedings of ICALEPCS 1995
+}{\hspace{0.1em}}], (1995).
+\renewcommand{\baselinestretch}{0.5}
+
+[6] Grosso, W., ``Java RMI'', O'Reilly \& Associates Inc, (2002).
 \renewcommand{\baselinestretch}{0.5}
 
 }

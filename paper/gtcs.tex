@@ -1,0 +1,469 @@
+%ADASS_PROCEEDINGS_FORM%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TEMPLATE.TEX -- ADASS Conference Proceedings template.
+%
+% Use this template to create your proceedings paper in LaTeX format
+% by following the instructions given below.  Much of the input will
+% be enclosed by braces (i.e., { }).  The percent sign, "%", denotes
+% the start of a comment; text after it will be ignored by LaTeX.  
+% You might also notice in some of the examples below the use of "\ "
+% after a period; this prevents LaTeX from interpreting the period as
+% the end of a sentence and putting extra space after it.  
+% 
+% You should check your paper by processing it with LaTeX.  For
+% details about how to run LaTeX as well as how to print out the User
+% Guide, consult the README file.  You should also consult the sample
+% LaTeX papers, sample1.tex and sample2.tex, for examples of including
+% figures, html links, special symbols, and other advanced features.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note that the primary style file is that from the ASP Conf. Series; ADASS style 
+% elements are included by an additional \usepackage. You may use other 
+% _standard_ packages if needed, such as lscape, psfig, epsf, and graphicx, 
+% although these packages may already be installed on your system. 
+%
+\documentclass[11pt,twoside]{article}  % Leave intact
+\usepackage{asp2006}
+\usepackage{adassconf}
+
+% Set counters for footnotes and sectioning, which is needed when 
+% constructing the full volume of all papers. 
+% DO NOT DELETE. 
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\setcounter{footnote}{0}
+\setcounter{section}{0}
+\setcounter{table}{0}
+
+\begin{document}   % Leave intact
+
+%-----------------------------------------------------------------------
+%			    Paper ID Code
+%-----------------------------------------------------------------------
+% Enter the proper paper identification code.  The ID code for your paper 
+% is the session number associated with your presentation as published 
+% in the official conference proceedings.  You can find this number by 
+% locating your abstract in the printed proceedings that you received 
+% at the meeting, or on-line at the conference web site.
+%
+% This identifier will not appear in your paper; however, it allows different
+% papers in the proceedings to cross-reference each other.  Note that
+% you should only have one \paperID, and it should not include a
+% trailing period.
+%
+% EXAMPLE: \paperID{O4.1}
+% EXAMPLE: \paperID{P2.7}
+
+\paperID{43}
+
+%-----------------------------------------------------------------------
+%		            Paper Title 
+%-----------------------------------------------------------------------
+% Enter the title of the paper.
+%
+% EXAMPLE: \title{A Breakthrough in Astronomical Software Development}
+
+\title{A Reference Architecture Specification of a Generic Telescope Control System}
+
+%-----------------------------------------------------------------------
+%          Short Title & Author list for page headers
+%-----------------------------------------------------------------------
+% Please supply the author list and the title (abbreviated if necessary) as 
+% arguments to \markboth.
+%
+% The author last names for the page header must appear in one of 
+% these formats:
+%
+% EXAMPLES:
+%     LASTNAME
+%     LASTNAME1 and LASTNAME2
+%     LASTNAME1, LASTNAME2, and LASTNAME3
+%     LASTNAME et al.
+%
+% Use the "et al." form in the case of four or more authors.
+%
+% If the title is too long to fit in the header, shorten it: 
+%
+% EXAMPLE: change
+%    Rapid Development for Distributed Computing, with Implications for the Virtual Observatory
+% to:
+%    Rapid Development for Distributed Computing
+
+\markboth{}{}
+
+%-----------------------------------------------------------------------
+%		          Authors of Paper
+%-----------------------------------------------------------------------
+% Enter the authors followed by their affiliations.  The \author and
+% \affil commands may appear multiple times as necessary.  List each
+% author by giving the first name or initials first followed by the
+% last name. Do not include street addresses and postal codes, but 
+% do include the country name or abbreviation. 
+%
+% If the list of authors is lengthy and there are several institutional 
+% affiliations, you can save space by using the \altaffilmark and \altaffiltext 
+% commands in place of the \affil command.
+%
+% EXAMPLE: 
+%      \author{Raymond Plante, Doug Roberts, 
+%                  R.\ M.\ Crutcher\altaffilmark{1}}
+%      \affil{National Center for Supercomputing Applications, 
+%                 University of Illinois, Urbana, IL, USA}
+%      \author{Tom Troland}
+%      \affil{University of Kentucky, Lexington, KY, USA}
+%
+%      \altaffiltext{1}{Astronomy Department, UIUC}
+%
+% In this example, the first three authors, "Plante", "Roberts", and
+% "Crutcher" are affiliated with "NCSA".  "Crutcher" has an alternate 
+% affiliation with the "Astronomy Department".  The fourth author,
+% "Troland", is affiliated with "University of Kentucky"
+
+\author{Joao S. L\'opez, Rodrigo J. Tobar, Tomas Staig, Daniel A. Bustamante, Camilo E. Menay, Horst H. von Brand}
+\affil{Universidad T\'ecnica Federico Santa Mar\'ia, Valpara\'iso, Chile}
+\author{Mauricio A. Araya}
+\affil{Institut National de Recherche en Informatique et Automatique, Nancy, France}
+
+%----------------------------------------------------------------------
+%			 Contact Information
+%-----------------------------------------------------------------------
+% This information will not appear in the paper but will be used by
+% the editors in case you need to be contacted concerning your
+% submission.  Enter your name as the contact along with your email
+% address.
+% 
+% EXAMPLE:  \contact{Dennis Crabtree}
+%           \email{crabtree@cfht.hawaii.edu}
+
+\contact{Joao S. Lopez}
+\email{jslopez@csrg.inf.utfsm.cl}
+
+%-----------------------------------------------------------------------
+%		      Author Index Specification
+%-----------------------------------------------------------------------
+% Specify how each author name should appear in the author index.  The 
+% \paindex{ } should be used to indicate the primary author, and the
+% \aindex for all other co-authors.  You MUST use the following
+% syntax: 
+%
+% SYNTAX:  \aindex{Lastname, F.~M.}
+% 
+% where F is the first initial and M is the second initial (if used). Please 
+% ensure that there are no extraneous spaces anywhere within the command 
+% argument. This guarantees that authors that appear in multiple papers
+% will appear only once in the author index. Authors must be listed in the order
+% of the \paindex and \aindex commmands.
+%
+% EXAMPLE: \paindex{Crabtree, D.}
+%          \aindex{Manset, N.}        
+%          \aindex{Veillet, C.}        
+
+\paindex{L\'opez, J.~S.}
+\aindex{Tobar, R.~J.}     % Remove this line if there is only one author
+\aindex{Staig, T.}
+\aindex{Bustamante, D.~A.}
+\aindex{Menay, C.~E.}
+\aindex{Araya, M.~A.}
+\aindex{von Brand, H.~H.}
+
+%-----------------------------------------------------------------------
+%			Subject Index keywords
+%-----------------------------------------------------------------------
+% Enter up to 6 keywords that are relevant to the topic of your paper.  These 
+% will NOT be printed as part of your paper; however, they will guide the creation 
+% of the subject index for the proceedings.  Please use entries from the
+% standard list where possible, which can be found in the index for the 
+% ADASS XVI proceedings. Separate topics from sub-topics with an exclamation 
+% point (!). 
+%
+% EXAMPLE:  \keywords{astronomy!radio, computing!grid, data management!workflows, 
+%     instrumentation!control}
+
+\keywords{instrumentation!control, software!reuse, software!frameworks, computing!distributed}
+
+%-----------------------------------------------------------------------
+%			       Abstract
+%-----------------------------------------------------------------------
+% Type abstract in the space below.  Consult the User Guide and Latex
+% Information file for a list of supported macros (e.g. for typesetting 
+% special symbols). Do not leave a blank line between \begin{abstract} 
+% and the start of your text.
+
+\begin{abstract}          % Leave intact
+A Telescope Control System (TCS) is a software responsible of controlling the
+hardware that an astronomical observation needs. The automation and
+sophistication of these observations has produced complex systems. Currently, a
+TCS is compound by software components that interact with several users and
+even with other systems and instruments.
+Each observatory has successfully developed a wide spectrum of TCS solutions
+for their telescopes. Regardless the mount, there are common patterns in the
+software components that all these telescopes use. As almost every telescope is
+custom designed, these patterns are reimplemented again and again for each
+telescope. This is indeed an opportunity of reuse and collaboration.
+The Generic Telescope Control System (gTCS) pretends to be a base distributed
+framework for the development and deployment of the TCS of any telescope,
+independent of its physical structure, the type of mount and instrumentation
+that they use. This work presents an architecture specification explained
+through two complementary approaches: the layers perspective and the deployment
+perspective. The first approach defines a set of layers, one on the top of the
+other, offering different levels of abstraction. Meanwhile the deployment
+perspective intends to illustrate how the system could be deployed, focused on
+the distributed nature of the devices.
+\end{abstract}
+
+%-----------------------------------------------------------------------
+%			      Main Body
+%-----------------------------------------------------------------------
+% Place the text for the main body of the paper here.  You should use
+% the \section command to label the various sections; use of
+% \subsection is optional.  Significant words in section titles should
+% be capitalized.  Sections and subsections will be numbered
+% automatically. 
+%
+% EXAMPLE:  \section{Introduction}
+%           ...
+%           \subsection{Our View of the World}
+%           ...
+%           \section{A New Approach}
+%
+% It is recommended that you look at the sample paper sample2.tex
+% for examples of formatting references, footnotes, figures, equations, 
+% html links, lists, and other features.  
+
+\section{The Generic TCS Problem}
+\subsection{Overview}
+Control systems have two basic entry points: the \textit{users} and the
+\textit{devices}. In a TCS domain, users and devices are heterogeneous: users
+with various levels of expertise, and devices with different protocols and
+access levels. Therefore, to understand the problem we must identify the diverse
+nature of users and devices.
+
+\subsection{The Users}
+Users can be classified by the \emph{usage} that they give to the system, or in
+other words, to which \emph{profile} they belong. Profile examples:
+
+\begin{itemize}
+        \item \textbf{Observation Control}: The control of the observation
+itself. Includes all the variables in the domain of the Astronomer, and all the
+technical and specific details of the telescopes are hidden.
+        \item \textbf{Calibration and Startup}: The automatic or manual process
+of calibrating the telescope, also in high-level domain, but including the
+specific details of the telescope.
+        \item \textbf{Maintenance}: The low-level variables of the telescope,
+with a detailed control of all the devices and software states.
+        \item \textbf{Monitoring}: The summary of the telescope operations to
+audit, check the behavior of the devices, etc. This may be a mixture of specific
+logs with general information of the observation.
+\end{itemize}
+
+The problem is that several users could use more than one profile. Then,
+building an application for each profile is not the most desired approach.
+Therefore, the existing TCSs often build very complex user interfaces that have
+all the information that the user \emph{may} need. This turns the
+application unmanageable for unexperienced users. Fortunately, defining these
+profiles helps to identify which is the scope of the TCS and select the features
+that the system will need in a user-independent fashion.
+
+\subsection{Devices Scope}
+The devices of a telescope are diverse. Only in the axis control domain each
+telescope mount/technology has different devices with different protocols and
+configurations. Even if two telescopes has the same hardware, the firmware or
+other vendor software could vary. If we add to the equation mirror control,
+active optics and meteorologic stations, the set of devices turns unmanageable.
+Therefore, defining the possible set of devices is not a practical approach. A
+simpler approach is to group the devices into \emph{instruments} that do a
+specific task.  In an observatory there are two general types of hardware
+devices:
+
+\begin{itemize}
+        \item \textbf{Technical Instruments}: All instrument that does not
+directly produce scientific data, such as the telescope, a meteorologic station,
+the active optics, an autoguiding CCD, etc.
+        \item \textbf{Scientific Instruments}: All instrument that produces
+scientific data that the astronomer will use, such as the main CCD, a
+spectrograph, an interferometer, filter wheels, etc.  \end{itemize}
+
+The scope of a TCS is limited to \emph{technical instruments} and their devices.
+Also, a TCS must provide all the interfaces to connect the software in charge of
+managing the \emph{scientific instruments}.
+
+\section{Proposed Architecture Specification}
+\subsection{Layers perspective}
+The \emph{layers perspective} presents different levels of abstraction (higher
+layers offer higher abstractions). This perspective can be seen as the network
+stack (such TCP/IP) where each layer offers services to the upper one, and the
+upper one only uses the lower one.
+
+This view allow us to have an idea of which are the different abstractions
+that the system needs, and how to encapsulate this information in different
+layers.
+
+\begin{description}
+        \item[Drivers] Responsible of the communication of the system with
+                external entities.
+        \item[Sensors/Actuators] Considering a device as a single monitor/control point
+                associated with a unique property to be read/written,
+                Sensors/Actuators provides software abstractions of physical
+                devices, without considering any interaction with any other
+                device.
+        \item[Composite devices] It represents a full device used on the
+                astronomy domain that can be composed by a given number of
+                sensors and/or actuators.
+        \item[Observation control] It offers the abstraction of a full equipped
+                telescope. This is done by grouping different composite
+                devices, and using them in an intelligent way, in order to
+                obtain data, collaborate, and finally do control over the
+                necessary composite devices.
+\end{description}
+
+\subsection{Deployment perspective}
+The \emph{deployment perspective} intends to illustrate how the architecture can
+be used in a distributed way, showing the geographical deployment of the
+system, and the bus that communicates its components.
+
+Each computer will execute different parts of the system and we can distribute one
+layer through several computers. This is the capability of the system to have
+its components spread over a network of computers, while working together.
+
+The Information Service can be seen as a software component accessible through
+any part part of the system. It has two main responsibilities: to know which
+software components are available in the system and to offer the possibility to
+retrieve information about the classes, interfaces, methods, parameters and
+related information from all the components of the system.
+
+\section{Reference technologies}
+The Control System for an Amateur Telescope (Tobar et al. 2008) project, a TCS constructed over
+ALMA Common Software (ACS) (Chiozzi et al. 2008, Chiozzi et al. 2006) was used as an initial approach to the problem and
+reference architecture.
+
+To exemplify the proposed reference, existing technologies that are implementing
+some aspects of the proposal are analyzed.
+
+\begin{description}
+        \item[ALMA Common Software] If we consider the Container/Component (Sommer et al. 2004)
+                model present on ACS, each composite device can be managed by an
+                ACS Characteristic component. Through the use of states,
+                exceptions and container lifecycle we are able to manage the
+                lifecycle of the whole gTCS. Currently ACS uses CORBA, which is
+                an example of a communication bus. The information service can
+                be obtained through the Manager (responsible for the management
+                of containers, components and clients) and the information
+                provided by the Interface Repository (IR) and the Configuration
+                Database (CDB).
+        \item[VLT Common Software] The VLT control software (Chiozzi et al. 1995) uses software
+                modules, sharing benefits of re-usability. These modules are a
+                basic item for the detailed design, development and integration
+                of software.  The software architecture is distributed over
+                several workstations that provide high level and coordination
+                services. The communication is based on a message system and a
+                distributed hierarchical database.
+
+        \item[Java Remote Method Invocation] The Java Remote Method Invocation
+                (RMI) (Grosso 2002) is a Java approach to support a model of a distributed
+                object application. It provides remote communication between
+                programs written in Java. It allows applications to call
+                methods located remotely, sharing resources and processing load
+                across systems.
+\end{description}
+
+\acknowledgments
+This work was supported by ALMA-CONICYT Fund project \#31060008
+\textit{``Software Development for ALMA: Building Up Expertise to Meet ALMA
+Software Requirements within a Chilean University''}, under development at
+Universidad T\'ecnica Federico Santa Mar\'ia.
+
+%-----------------------------------------------------------------------
+%			      References
+%-----------------------------------------------------------------------
+% List your references below within the reference environment
+% (i.e. between the \begin{references} and \end{references} tags).
+% Each new reference should begin with a \reference command which sets
+% up the proper indentation.  
+%    NOTE: all citations in the text _must_ have a corresponding entry in 
+%    the reference list, and all references must be cited in the text.
+%
+% Observe the following order when listing bibliographical 
+% information for each reference:  author name(s), publication 
+% year, journal name, volume, and page number for articles. 
+% URLs to the reference may be given either in-line, or as a footnote. 
+% Note that many journal names are available as macros; see
+% the User Guide for a listing "macro-ized" journals. 
+%
+% EXAMPLES:  
+% Reference to a Journal article:
+%     \reference Cornwell, T.\ J.\ 1988, \aap, 202, 316
+%
+% Journal paper with more than 7 authors;
+%     \reference Hanisch, R.\ et al.\ 2001, \aap, 376, 359
+%
+% Reference to an SPIE paper:
+%     \reference Noordam, J.~E.\ 2004, Proc.\ SPIE, 5489, 817
+%
+% Reference to a contribution to a proceedings (not ADASS)
+%     \reference Schmitz, M., Helou, G., Dubois, P., LaGue, C., Madore,B., Corwin, H.~G., Jr., 
+%          \& Lesteven, S.\ 1995, in Information \& On-Line Data in Astronomy, 
+%          ed.\ D.\ Egret \& M.~A.\ Albrecht (Dordrecht: Kluwer Academic Publishers), 259
+%
+% Reference to a paper in an earlier ADASS proceedings:
+%     \reference Kantor, J., et al.\ 2007, \adassvii, 3
+%
+% Reference to a paper in the current ADASS:
+%     \reference Hanisch, R.~J.\ 2008, \adassxvii, \paperref{O1.3}
+% 
+% Reference to a book:
+%     \reference Jacobson, I.\ Booch, G., \& Rumbaugh, J.\ 1999, 
+%            The Unified Software Development Process (Reading, MA: Addison-Wesley)
+%
+% Reference to a thesis:
+%     \reference Gering, D.\ 1999, Master's Thesis, Massachusetts Institute of Technology
+% 
+% Reference to a purely on-line resource:
+%     \reference Staveley-Smith, L.\ 2006, ATNF SKA Memo~6, http://www.atnf.csiro.au/ska
+%
+% Note the following tricks used in the example above:
+%
+%   o  \& is used to format an ampersand symbol (&).
+%   o  \'e puts an accent agu over the letter e.  See the User Guide
+%      and the sample files for details on formatting special
+%      characters.  
+%   o  "\ " after a period prevents LaTeX from interpreting the period 
+%      as an end of a sentence.
+%   o  \aj is a macro that expands to "Astron. J."  See the User Guide
+%      for a full list of journal macros
+%   o  \adassvii is a macro that expands to the full title, editor,
+%      and publishing information for the ADASS VII conference
+%      proceedings.  Such macros are defined for ADASS conferences I
+%      through XVI.
+%   o  When referencing a paper in the current volume, use the
+%      \adassxvii and \paperref macros.  The argument to \paperref is
+%      the paper ID code for the paper you are referencing.  See the 
+%      note in the "Paper ID Code" section above for details on how to 
+%      determine the paper ID code for the paper you reference.  
+%
+\begin{references}
+\reference Tobar, R. et~al., ``An amateur telescope control system towards a generic
+telescope control model'' in Proceedings of SPIE - Advanced Software and
+Control for Astronomy 2008, (2008).
+
+\reference Chiozzi, G. et~al., ``The ALMA Common Software: A developer friendly CORBA
+based framework'' in Proceedings of SPIE - Advanced Software and Control
+for Astronomy 2008, (2008).
+
+\reference Chiozzi, G. et~al., ``Application development using the ALMA Common
+Software'' in Proceedings of SPIE - Advanced Software and Control for
+Astronomy 2006, (2006).
+
+\reference Sommer, H. et~al., ``Container-component model and XML in ALMA ACS''
+in Proceedings of SPIE - Advanced Software and Control for Astronomy 2004,
+(2004).
+
+\reference Chiozzi, G., ``An object-oriented event-driven architecture for the VLT
+Telescope Control Software'' in Proceedings of ICALEPCS 1995
+, (1995).
+
+\reference Grosso, W., ``Java RMI'', O'Reilly \& Associates Inc, (2002).
+\end{references}
+
+% Do not place any material after the references section
+
+\end{document}  % Leave intact

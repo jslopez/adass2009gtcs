@@ -25,6 +25,7 @@
 \documentclass[11pt,twoside]{article}  % Leave intact
 \usepackage{asp2006}
 \usepackage{adassconf}
+\usepackage{graphicx}
 
 % Set counters for footnotes and sectioning, which is needed when 
 % constructing the full volume of all papers. 
@@ -89,7 +90,7 @@
 % to:
 %    Rapid Development for Distributed Computing
 
-\markboth{}{}
+\markboth{L\'opez, Tobar, Staig, Bustamante, Menay, Araya, and von Brand}{A Reference Architecture Specification of a Generic Telescope Control System}
 
 %-----------------------------------------------------------------------
 %		          Authors of Paper
@@ -315,6 +316,13 @@ layers.
                 obtain data, collaborate, and finally do control over the
                 necessary composite devices.
 \end{description}
+\begin{figure}[h!t]
+\begin{center}
+\includegraphics[scale=0.2]{layers}
+\end{center}
+\caption{System's architecture in a multi-layer perspective}
+\label{fig:layers}
+\end{figure}
 
 \subsection{Deployment perspective}
 The \emph{deployment perspective} intends to illustrate how the architecture can
@@ -332,15 +340,16 @@ retrieve information about the classes, interfaces, methods, parameters and
 related information from all the components of the system.
 
 \section{Reference technologies}
-The Control System for an Amateur Telescope (Tobar et al. 2008) project, a TCS constructed over
-ALMA Common Software (ACS) (Chiozzi et al. 2008, Chiozzi et al. 2006) was used as an initial approach to the problem and
-reference architecture.
+The Control System for an Amateur Telescope (Tobar et al.\ 2008) project, a TCS
+constructed over ALMA Common Software (ACS) (Chiozzi et al.\ 2008, Chiozzi et
+al.\ 2006) was used as an initial approach to the problem and reference
+architecture.
 
 To exemplify the proposed reference, existing technologies that are implementing
 some aspects of the proposal are analyzed.
 
 \begin{description}
-        \item[ALMA Common Software] If we consider the Container/Component (Sommer et al. 2004)
+        \item[ALMA Common Software] If we consider the Container/Component (Sommer et al.\ 2004)
                 model present on ACS, each composite device can be managed by an
                 ACS Characteristic component. Through the use of states,
                 exceptions and container lifecycle we are able to manage the
@@ -350,7 +359,7 @@ some aspects of the proposal are analyzed.
                 of containers, components and clients) and the information
                 provided by the Interface Repository (IR) and the Configuration
                 Database (CDB).
-        \item[VLT Common Software] The VLT control software (Chiozzi et al. 1995) uses software
+        \item[VLT Common Software] The VLT control software (Chiozzi et al.\ 1995) uses software
                 modules, sharing benefits of re-usability. These modules are a
                 basic item for the detailed design, development and integration
                 of software.  The software architecture is distributed over
@@ -441,27 +450,27 @@ Universidad T\'ecnica Federico Santa Mar\'ia.
 %      determine the paper ID code for the paper you reference.  
 %
 \begin{references}
-\reference Tobar, R. et~al., ``An amateur telescope control system towards a generic
-telescope control model'' in Proceedings of SPIE - Advanced Software and
+\reference Tobar, R. et~al., An amateur telescope control system towards a generic
+telescope control model in Proceedings of SPIE - Advanced Software and
 Control for Astronomy 2008, (2008).
 
-\reference Chiozzi, G. et~al., ``The ALMA Common Software: A developer friendly CORBA
-based framework'' in Proceedings of SPIE - Advanced Software and Control
+\reference Chiozzi, G. et~al., The ALMA Common Software: A developer friendly CORBA
+based framework in Proceedings of SPIE - Advanced Software and Control
 for Astronomy 2008, (2008).
 
-\reference Chiozzi, G. et~al., ``Application development using the ALMA Common
-Software'' in Proceedings of SPIE - Advanced Software and Control for
+\reference Chiozzi, G. et~al., Application development using the ALMA Common
+Software in Proceedings of SPIE - Advanced Software and Control for
 Astronomy 2006, (2006).
 
-\reference Sommer, H. et~al., ``Container-component model and XML in ALMA ACS''
+\reference Sommer, H. et~al., Container-component model and XML in ALMA ACS
 in Proceedings of SPIE - Advanced Software and Control for Astronomy 2004,
 (2004).
 
-\reference Chiozzi, G., ``An object-oriented event-driven architecture for the VLT
-Telescope Control Software'' in Proceedings of ICALEPCS 1995
+\reference Chiozzi, G., An object-oriented event-driven architecture for the VLT
+Telescope Control Software in Proceedings of ICALEPCS 1995
 , (1995).
 
-\reference Grosso, W., ``Java RMI'', O'Reilly \& Associates Inc, (2002).
+\reference Grosso, W., Java RMI, O'Reilly \& Associates Inc, (2002).
 \end{references}
 
 % Do not place any material after the references section
